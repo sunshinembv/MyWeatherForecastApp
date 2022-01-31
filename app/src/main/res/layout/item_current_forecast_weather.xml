@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/locationName"
+        style="?attr/textAppearanceHeadline6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Moscow" />
+
+    <TextView
+        android:id="@+id/weatherTemperature"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@id/weatherIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/weatherIcon"
+        tools:text="8" />
+
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="@dimen/weather_icon_size_64dp"
+        android:layout_height="@dimen/weather_icon_size_64dp"
+        android:layout_marginStart="@dimen/indent_8dp"
+        app:layout_constraintStart_toEndOf="@id/weatherTemperature"
+        app:layout_constraintTop_toTopOf="@id/weatherWind"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/weatherDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherIcon"
+        tools:text="Описание" />
+
+    <TextView
+        android:id="@+id/weatherFeelsLike"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherDescription"
+        tools:text="Ощущается как" />
+
+    <TextView
+        android:id="@+id/weatherWind"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/weatherWindIcon"
+        app:layout_constraintTop_toBottomOf="@id/locationName"
+        tools:text="Скорость ветра" />
+
+    <ImageView
+        android:id="@+id/weatherWindIcon"
+        android:layout_width="@dimen/weather_icon_size_16dp"
+        android:layout_height="@dimen/weather_icon_size_16dp"
+        android:src="@drawable/ic_wind"
+        app:layout_constraintBottom_toBottomOf="@id/weatherWind"
+        app:layout_constraintStart_toEndOf="@id/weatherIcon"
+        app:layout_constraintTop_toTopOf="@id/weatherWind" />
+
+    <TextView
+        android:id="@+id/weatherPressure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/weatherPressureIcon"
+        app:layout_constraintTop_toBottomOf="@id/weatherWind"
+        tools:text="Давление" />
+
+    <ImageView
+        android:id="@+id/weatherPressureIcon"
+        android:layout_width="@dimen/weather_icon_size_16dp"
+        android:layout_height="@dimen/weather_icon_size_16dp"
+        android:src="@drawable/ic_pressure"
+        app:layout_constraintBottom_toBottomOf="@id/weatherPressure"
+        app:layout_constraintStart_toEndOf="@id/weatherIcon"
+        app:layout_constraintTop_toTopOf="@id/weatherPressure" />
+
+    <TextView
+        android:id="@+id/weatherHumidity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/weatherHumidityIcon"
+        app:layout_constraintTop_toBottomOf="@id/weatherPressure"
+        tools:text="Влажность" />
+
+    <ImageView
+        android:id="@+id/weatherHumidityIcon"
+        android:layout_width="@dimen/weather_icon_size_16dp"
+        android:layout_height="@dimen/weather_icon_size_16dp"
+        android:src="@drawable/ic_drop"
+        app:layout_constraintBottom_toBottomOf="@id/weatherHumidity"
+        app:layout_constraintStart_toEndOf="@id/weatherIcon"
+        app:layout_constraintTop_toTopOf="@id/weatherHumidity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
