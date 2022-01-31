@@ -1,5 +1,6 @@
 package com.example.data.di
 
+import com.example.data.network.Keys
 import com.example.data.network.WeatherApi
 import dagger.Module
 import dagger.Provides
@@ -21,7 +22,7 @@ class NetworkModule {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             ).addNetworkInterceptor { chain ->
                 val modifiedRequest = chain.request().newBuilder()
-                    .addHeader(HEADER_API_KEY, "").build()
+                    .addHeader(HEADER_API_KEY, Keys.apiKey()).build()
 
                 chain.proceed(modifiedRequest)
             }
