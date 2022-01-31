@@ -22,7 +22,7 @@ class NetworkModule {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             ).addNetworkInterceptor { chain ->
                 val modifiedRequest = chain.request().newBuilder()
-                    .addHeader(HEADER_API_KEY, API_KEY).build()
+                    .addHeader(HEADER_API_KEY, Keys.apiKey()).build()
 
                 chain.proceed(modifiedRequest)
             }
@@ -37,6 +37,5 @@ class NetworkModule {
     companion object {
         private const val BASE_URL = "https://api.openweathermap.org/"
         private const val HEADER_API_KEY = "X-Api-Key"
-        private const val API_KEY = "875f91518b7aa12e6481c305fdd039f4"
     }
 }
