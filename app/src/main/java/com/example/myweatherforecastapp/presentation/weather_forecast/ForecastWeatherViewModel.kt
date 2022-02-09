@@ -35,8 +35,6 @@ class ForecastWeatherViewModel(
         MutableStateFlow(getAppIsFirstStartUseCase.execute(APP_FIRST_START_KEY, true))
     val isAppFirstStart: StateFlow<Boolean> = _isAppFirstStart.asStateFlow()
 
-    private var job: Job? = null
-
     fun getCurrentForecastWeather(
         lat: Double,
         lon: Double,
@@ -77,18 +75,13 @@ class ForecastWeatherViewModel(
     @FlowPreview
     @ExperimentalCoroutinesApi
     fun searchCity(queryFlow: Flow<String>) {
-        job = queryFlow.filter { it.isNotEmpty() }.debounce(500).mapLatest { locationName ->
+        queryFlow.filter { it.isNotEmpty() }.debounce(500).mapLatest { locationName ->
             getCoordinatesByLocationName(locationName)
         }.launchIn(viewModelScope)
     }
 
     fun saveAppFirstStart(key: String, value: Boolean) {
         setAppFirstStartUseCase.execute(key, value)
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        job = null
     }
 
     class Factory @Inject constructor(
